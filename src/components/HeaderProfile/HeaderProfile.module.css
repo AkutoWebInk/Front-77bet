@@ -1,0 +1,26 @@
+.component {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border: 2px solid transparent; /* Start with transparent border */
+}
+
+.component:hover {
+    border-color: orangered;
+    transform: scale(1.05);
+}
+
+.component:active {
+    transform: scale(0.98);
+}
+
+.picture {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover; /* Ensures the image covers the circle without distortion */
+}

@@ -1,0 +1,116 @@
+.mainContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 15px;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+    .mainContainer {
+        gap: 25px;
+        padding: 0;
+    }
+}
+
+.headerContent {
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.carouselSection {
+  width: 100%;
+  border-bottom: 2px solid #ff4500;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px; /* Spacing after the line */
+}
+
+@media (min-width: 1024px) {
+  .carouselSection {
+    padding: 30px 0;
+    margin-bottom: 25px;
+  }
+  .carouselSection > * {
+    max-width: 1200px;
+  }
+}
+
+.searchWrapper {
+  padding: 0 8px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+
+/* Promotional Section */
+.promoSection{
+    position: relative;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+    margin-top: 0;
+    height: auto;
+    animation: fadeIn .1s forwards;
+}
+
+/* Content Section */
+.gamesSection {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 80px;
+    z-index: 1;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    /* opacity: 0; */
+    transform: translate(0, 50vh); /* start from vertical center of viewport */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0); /* final position, top stays */
+  }
+}.searchResults {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1;
+}
+
+.gamesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .gamesGrid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 15px;
+    }
+}
+
+.sectionTitle {
+    font-size: 1.2rem;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}

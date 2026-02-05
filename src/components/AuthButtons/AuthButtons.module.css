@@ -1,0 +1,22 @@
+.component{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+
+    width: 140px;
+    height: 40px;
+}
+.component button{
+    width: 100%;
+    border: 0px;
+    height: 40px;
+    border-radius: 3px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, .9);
+    text-shadow: 0px 2px 4px black;
+    cursor: pointer;
+    }
+    .login{background-color: transparent;}
+    .register{background-color: rgba(255, 69, 0, .9);}
+

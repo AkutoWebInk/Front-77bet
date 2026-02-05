@@ -1,0 +1,33 @@
+html, body, #root {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  --max-content-width: 1200px;
+}
+
+body {
+  background-color: rgba(5, 5, 5, 1);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* removes mobile blue highlight globally */
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+button, a, input {
+  -webkit-tap-highlight-color: transparent; /* removes mobile blue highlight */
+  outline: none; /* removes focus outline */
+  transition: transform 0.1s ease; /* smooth transition for the click effect */
+}
+
+button:active {
+  transform: scale(0.98); /* scales the button down slightly when clicked */
+}

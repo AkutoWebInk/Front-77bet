@@ -1,0 +1,60 @@
+.component{
+    width: 100%;
+    border-radius: 5px;
+    padding: 0px;
+    gap:0px;
+    transition: max-height .3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    }
+    .expanded{
+        max-height: auto;
+    }
+    .collapsed{
+        max-height: 50px;
+    }
+
+.expand{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 50px;
+    position: relative;
+    background-color: #101010;
+    border: 0px;
+    color: rgba(255, 255, 255, .7);
+    font-size: 16px;
+    font-weight: 300;
+    }
+    .expand div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        gap: 10px;
+    }
+.img{
+    height: 40px;
+}
+.icon {
+    transition: transform 0.3s ease;
+}
+.expanded .icon {
+    transform: rotateX(180deg);
+}
+
+.content {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .3s ease, transform .5s ease;
+  border-radius: 3px;
+}
+
+.expanded .content {
+  opacity: 1;
+  transform: translateY(0);
+}

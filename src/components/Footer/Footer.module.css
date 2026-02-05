@@ -1,0 +1,35 @@
+.footer {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  text-align: center;
+  border-radius: 3px;
+  text-align: center;
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+  padding-top: 50px;
+}
+
+.payments {
+  display: flex;
+  flex-wrap: wrap;       
+  align-items: center;
+  justify-content: center;
+  gap: 15px;             
+  height: auto;         
+  padding: 5px 0;
+}
+
+.paymentIcon {
+  height: 40px;
+  flex: 0 1 60px;
+}
+
+.warning, .rights{
+    color: rgba(255, 255, 255,.8);
+    font-weight: 400;
+    font-size: 13px;
+    text-align: center;
+    justify-content: center;
+}

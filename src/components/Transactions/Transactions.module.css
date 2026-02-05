@@ -1,0 +1,158 @@
+.component{
+    width: 100%;
+    max-height: 510px;
+    height: auto;
+    background-color: transparent;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+/* buttons */
+.buttons{
+    width: 100%;
+    min-height: 60px;
+    max-height: 60px;
+    display: flex;
+    box-sizing: border-box;
+    gap: 1px;
+}
+.buttons button{
+    width: 100%;
+    border: 0;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 0;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.buttons button.activeTab {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-bottom: 2px solid orangered;
+}
+
+/* container + cards */
+.transactions{
+    width: 100%;
+    background-color: transparent;
+    overflow-y: scroll;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 15px 10px;
+}
+
+.TransactionCard{
+    width: 100%;
+    min-height: 100px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    box-sizing: border-box;
+    color: white;
+    background-color: #151515;
+    border: 1px solid #202020;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #202020;
+    padding-bottom: 8px;
+}
+
+.txId {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.txStatus {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.pending {
+    background-color: rgba(255, 165, 0, 0.1);
+    color: orange;
+}
+
+.approved {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.failed {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+}
+
+.cardBody {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.txInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1; /* Distribute space equally */
+}
+
+/* Specific alignment for columns */
+.txInfo:nth-child(1) {
+    text-align: left;
+}
+
+.txInfo:nth-child(2) {
+    text-align: center;
+}
+
+.txInfo:nth-child(3) {
+    text-align: right;
+}
+
+.txLabel {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    margin: 0 !important;
+}
+
+.txAmount {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    margin: 0 !important;
+}
+
+.txType, .txProvider {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 !important;
+}
+
+.loadingText, .noDataText {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.b1{
+    border-bottom-left-radius: 3px;
+}
+.b2{
+    border-bottom-right-radius: 3px;
+}

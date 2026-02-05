@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.input {
+    background-color: #101010;
+    border: 1px solid #202020;
+    border-radius: 4px;
+    height: 40px;
+    padding: 0 12px;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    border-color: orangered;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #050505;
+}
+
+.separator {
+    margin-top: 10px;
+    font-size: 12px;
+    color: orangered;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #202020;
+    padding-bottom: 5px;
+}
+
+.saveButton {
+    margin-top: 10px;
+    height: 45px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.saveButton:hover {
+    opacity: 0.9;
+}
+
+.supportNote {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    margin-top: 5px;
+}

@@ -1,0 +1,68 @@
+.component{
+    position: fixed;
+    bottom: -5px;
+    left: 0;
+    
+    width: 100%;
+    height: 60px;
+    padding-bottom: 40px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 1000;
+}
+
+@media (min-width: 1024px) {
+    .component {
+        display: none;
+    }
+}
+
+.icon{
+    width: 100%;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,.9));
+}
+
+.button{
+    width: 50px;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    text-shadow: 0px 2px 4px black;
+    filter: drop-shadow(0px -2px 1px rgba(0,0,0,.9));
+    transition: transform 0.1s ease;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  opacity: 1;
+  animation: lavaFlow 6s ease-in-out infinite;
+}
+
+
+
+@keyframes lavaFlow {
+  0% {
+    transform: scale(1.0) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.0) translateY(0);
+    opacity: 1;
+  }
+}

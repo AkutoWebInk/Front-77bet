@@ -1,0 +1,91 @@
+.finance {
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+  background-color: #050505;
+  border: 1px solid #1a1a1a;
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 500;
+}
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.balanceLabel {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.balanceAmount {
+  font-size: 22px;
+  font-weight: bold;
+  color: #14cd1a;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  word-break: break-all;
+  line-height: 1.2;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  justify-content: flex-end;
+  min-width: fit-content;
+}
+
+@media (max-width: 480px) {
+  .actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .actionButton {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+.actionButton {
+  background: none;
+  border: 1px solid #252525;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionButton:hover {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.depositButton {
+  background-color: #14cd1a;
+  border-color: #20cb25;
+  color: white;
+}
+
+.depositButton:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+}
+
+.icon {
+  font-size: 20px;
+}

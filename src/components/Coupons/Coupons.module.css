@@ -1,0 +1,39 @@
+.component{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    }
+    .component input{
+        background-color: rgba(255, 255, 255, .2);
+        
+        border: none;
+        width: 100%;
+        height: 40px;
+        border-bottom-left-radius: 5px;  
+
+        font-size: 16px;
+        text-align: center;
+        
+        color: white;
+    }
+    .component button{
+        height: 40px;
+        width: 60px;
+        border: none;
+        border-bottom-right-radius: 5px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: orangered;
+        
+        align-items: center;
+        color: white;
+        font-size: 26px;
+
+    }
+
