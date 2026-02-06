@@ -1,0 +1,76 @@
+.gameCard {
+  width: 100%;
+  background-color: #000;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.gameCard:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.portrait {
+  aspect-ratio: 3 / 4.2;
+}
+
+.gameImg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gameCard:hover .gameImg {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gameCard:hover .overlay {
+  opacity: 1;
+}
+
+.playBtn {
+  background: linear-gradient(90deg, #ffa500, #ff4500);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #111 25%, #222 50%, #111 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

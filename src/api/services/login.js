@@ -23,4 +23,17 @@ export async function requestLogin(data) {
     return null;
   }
 }
+
+export async function requestLogout() {
+  try {
+    const response = await fetch(`${API_PATH}/users/logout`, {
+      method: "POST",
+      credentials: "include",
+    });
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}
   

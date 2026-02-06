@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "./Transactions.module.css";
 import { useAuth } from "../../context/AuthProvider";
-import { getTransactionsHistory } from "../../api/services/transactions";
-import { formatCurrency } from "../../api/services/deposit";
+import { getTransactionsHistory } from "../../api/services/finance";
+import { formatCurrency } from "../../api/utils";
 
 
 function TransactionCard({ data }) {

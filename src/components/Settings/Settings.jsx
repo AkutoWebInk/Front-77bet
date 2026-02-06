@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Settings.module.css';
 import { useAuth } from '../../context/AuthProvider';
-import { formatPhone } from '../../api/services/register';
+import { formatPhone } from '../../api/utils';
 import { useWarning } from '../../context/WarningProvider';
 
 export default function Settings() {

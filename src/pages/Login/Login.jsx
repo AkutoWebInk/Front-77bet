@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import PromoCarousel from '../../components/PromoCarousel/PromoCarousel';
 import { promoList } from '../../api/promoList';
 // API calls/Auth:
-import { requestLogin } from "../../api/services/login";
+import { requestLogin } from "../../api/services/auth";
 import { useAuth } from '../../context/AuthProvider';
 
 // Warnings:

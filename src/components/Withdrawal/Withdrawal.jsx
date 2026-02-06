@@ -2,10 +2,11 @@
 import styles from './Withdrawal.module.css';
 
 // Functions
-import { formatValue, formatCurrency } from '../../api/services/deposit';
+import { formatValue, formatCurrency } from '../../api/utils';
 
 // API calls
-import { requestWithdrawal, formatPixKey, cleanPixKey, limitAmount } from '../../api/services/withdrawal';
+import { requestWithdrawal } from '../../api/services/finance';
+import { formatPixKey, cleanPixKey, limitAmount } from '../../api/utils';
 
 // Icons
 import { IoCloseOutline, IoCheckmarkCircleOutline, IoAlertCircleOutline } from "react-icons/io5";

@@ -3,17 +3,17 @@
   "name": "77bet Casino",
   "icons": [
     {
-      "src": "/icon.png",
+      "src": "/assets/icons/icon.png",
       "type": "image/png",
       "sizes": "32x32"
     },
     {
-      "src": "/mobile-icon.png",
+      "src": "/assets/icons/mobile-icon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/mobile-icon.png",
+      "src": "/assets/icons/mobile-icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }

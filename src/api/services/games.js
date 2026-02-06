@@ -1,9 +1,9 @@
-import { API_PATH_GAMES } from "../api";
+import { API_BASE_URL } from "../api";
 
 export const gameService = {
     listGames: async (providerCode = "PGSOFT") => {
         try {
-            const response = await fetch(`${API_PATH_GAMES}/games/list?provider_code=${providerCode}`);
+            const response = await fetch(`${API_BASE_URL}/games/list?provider_code=${providerCode}`);
             if (!response.ok) throw new Error('Failed to fetch games');
             const data = await response.json();
             return data.games || [];
@@ -14,7 +14,7 @@ export const gameService = {
     },
     launchGame: async (userCode, providerCode, gameCode, gameType = "slot") => {
         try {
-            const response = await fetch(`${API_PATH_GAMES}/games/launch`, {
+            const response = await fetch(`${API_BASE_URL}/games/launch`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -31,9 +31,9 @@ export const gameService = {
             return { status: "error", message: error.message };
         }
     },
-    getGameUrl: (gameId) => {
-        // ... (keeping old one for compatibility if needed, but we will use launchGame)
-        const token = localStorage.getItem('token');
-        return `${API_PATH_GAMES}/games/play/${gameId}/index.html?token=${token}`;
+    getGameUrl: (id) => {
+        // This is for local games. If needed, implement mapping here.
+        console.warn(`Local game URL requested for ${id}, but no local mapping exists.`);
+        return null;
     }
 };

@@ -4,7 +4,7 @@ import styles from './Wallet.module.css';
 import { useAuth } from '../../context/AuthProvider';
 import { useDeposit } from '../../context/DepositProvider';
 import { useWithdrawal } from '../../context/WithdrawalProvider';
-import { formatCurrency } from '../../api/services/deposit';
+import { formatCurrency } from '../../api/utils';
 // Icons
 import { IoArrowUpCircleOutline, IoArrowDownCircleOutline } from "react-icons/io5";
 

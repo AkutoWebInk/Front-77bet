@@ -6,7 +6,8 @@ export default function CategorySwiper({shortcuts}) {
 
   const handleClick = (shortcut) => {
     if (shortcut.code) {
-        navigate(`/casino/provider/${shortcut.code}`);
+        // navigate(`/casino/provider/${shortcut.code}`);
+        console.log("Navigation disabled: Provider page temporarily removed.");
     }
   };
 
@@ -15,10 +16,14 @@ export default function CategorySwiper({shortcuts}) {
       <div className={styles.swiper}>
         {shortcuts.map((shortcut, index) => (
           <div key={index} className={styles.item} onClick={() => handleClick(shortcut)}>
-            <div className={styles.card}>
-              <img src={shortcut.img} className={styles.icon} alt={shortcut.name} />
+            <div className={`${styles.card} ${!shortcut.img ? styles.textCard : ''}`}>
+              {shortcut.img ? (
+                <img src={shortcut.img} className={styles.icon} alt={shortcut.name} />
+              ) : (
+                <span className={styles.cardText}>{shortcut.name}</span>
+              )}
             </div>
-            <span className={styles.name}>{shortcut.name}</span>
+            {shortcut.img && <span className={styles.name}>{shortcut.name}</span>}
           </div>
         ))}
       </div>

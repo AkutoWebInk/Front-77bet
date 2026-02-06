@@ -1,58 +1,61 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import styles from './Home.module.css';
 // Components
-import GameList from '../../components/GameList/GameList';
+import PageGameCard from '../../components/PageGameCard/PageGameCard';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import PromoCarousel from '../../components/PromoCarousel/PromoCarousel'; 
 import Swiper from '../../components/Swiper/Swiper';
-import GameCard from '../../components/GameCard/GameCard';
+import PragmaticGameList from '../../components/GameLists/Pragmatic/PragmaticGameList';
+import PgSoftGameList from '../../components/GameLists/PgSoft/PgSoftGameList';
+import HabaneroGameList from '../../components/GameLists/Habanero/HabaneroGameList';
+import BooongoGameList from '../../components/GameLists/Booongo/BooongoGameList';
+import EvoplayGameList from '../../components/GameLists/Evoplay/EvoplayGameList';
+import DreamtechGameList from '../../components/GameLists/Dreamtech/DreamtechGameList';
+import OtherGamesList from '../../components/GameLists/Other/OtherGamesList';
 
 // Assets
 import { gameService } from '../../api/services/games';
 import { localBanners } from '../../api/localBanners';
 import { promoList } from '../../api/promoList';
-
-// Icons for Swiper
-import pgsoftIcon from '../../assets/providers/pgsoft.png';
-import pragmaticIcon from '../../assets/providers/pragmatic.png';
+import { providers } from '../../api/providers';
 
 export default function Home() {
-  const [pgGames, setPgGames] = useState([]);
-  const [pragmaticGames, setPragmaticGames] = useState([]);
+  const [gamesByProvider, setGamesByProvider] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      // Try to get from sessionStorage first
+      const cached = sessionStorage.getItem('home_games_cache_v2');
+      if (cached) {
+        const { data, timestamp } = JSON.parse(cached);
+        // Cache valid for 30 minutes
+        if (Date.now() - timestamp < 30 * 60 * 1000) {
+          setGamesByProvider(data);
+          setLoading(false);
+          return;
+        }
+      }
+
       setLoading(true);
       try {
-        const [pgList, prList] = await Promise.all([
-          gameService.listGames("PGSOFT"),
-          gameService.listGames("PRAGMATIC")
-        ]);
-
-        // Strictly show only curated games on Home for both providers
-        const curatedPg = (Array.isArray(pgList) ? pgList : []).filter(game => 
-          localBanners.includes(game.game_code?.toLowerCase())
+        // Fetch games for providers
+        const results = await Promise.all(
+          providers.map(p => gameService.listGames(p.id))
         );
 
-        const curatedPr = (Array.isArray(prList) ? prList : []).filter(game => 
-          localBanners.includes(game.game_code?.toLowerCase())
-        );
-
-        // Sort PGSOFT: Tiger, Rabbit, Ox, Ganesha, then others
-        const pgOrder = ["fortune-tiger", "fortune-rabbit", "fortune-ox", "ganesha-gold"];
-        const sortedPg = curatedPg.sort((a, b) => {
-          const indexA = pgOrder.indexOf(a.game_code?.toLowerCase());
-          const indexB = pgOrder.indexOf(b.game_code?.toLowerCase());
-          if (indexA !== -1 && indexB !== -1) return indexA - indexB;
-          if (indexA !== -1) return -1;
-          if (indexB !== -1) return 1;
-          return a.game_name?.localeCompare(b.game_name);
+        const newGamesState = {};
+        providers.forEach((p, index) => {
+          newGamesState[p.id] = results[index] || [];
         });
 
-        setPgGames(sortedPg);
-        setPragmaticGames(curatedPr.sort((a, b) => a.game_name?.localeCompare(b.game_name)));
+        setGamesByProvider(newGamesState);
+        
+        sessionStorage.setItem('home_games_cache_v2', JSON.stringify({
+          data: newGamesState,
+          timestamp: Date.now()
+        }));
       } catch (error) {
         console.error("Error fetching games:", error);
       } finally {
@@ -63,10 +66,14 @@ export default function Home() {
   }, []);
 
   const allGames = useMemo(() => {
-    const pg = pgGames.map(g => ({ ...g, provider: 'PGSOFT' }));
-    const pr = pragmaticGames.map(g => ({ ...g, provider: 'PRAGMATIC' }));
-    return [...pg, ...pr];
-  }, [pgGames, pragmaticGames]);
+    const all = [];
+    Object.entries(gamesByProvider).forEach(([providerId, games]) => {
+      games.forEach(g => {
+        all.push({ ...g, provider: providerId });
+      });
+    });
+    return all;
+  }, [gamesByProvider]);
 
   const filteredGames = useMemo(() => {
     if (!searchTerm) return null;
@@ -78,10 +85,11 @@ export default function Home() {
   }, [allGames, searchTerm]);
 
   const providerShortcuts = useMemo(() => {
-    return [
-      { name: 'PG SOFT', img: pgsoftIcon, code: 'PGSOFT' },
-      { name: 'PRAGMATIC', img: pragmaticIcon, code: 'PRAGMATIC' },
-    ];
+    return providers.map(p => ({
+      name: p.name,
+      img: p.icon,
+      code: p.id
+    }));
   }, []);
 
   return (
@@ -107,7 +115,7 @@ export default function Home() {
              <div className={styles.gamesGrid}>
                 {filteredGames.length > 0 ? (
                     filteredGames.map((game, i) => (
-                        <GameCard 
+                        <PageGameCard 
                           key={i} 
                           gameImg={game.banner} 
                           title={game.game_name} 
@@ -122,20 +130,24 @@ export default function Home() {
            </div>
         ) : (
           <>
-            <GameList 
-                provider="PGSOFT" 
-                title="PG Soft Slots" 
-                games={pgGames} 
-                maxGames={12}
+            <PgSoftGameList games={gamesByProvider['PGSOFT']} loading={loading} />
+            <PragmaticGameList games={gamesByProvider['PRAGMATIC']} loading={loading} />
+            <HabaneroGameList games={gamesByProvider['HABANERO']} loading={loading} />
+            <BooongoGameList games={gamesByProvider['BOOONGO']} loading={loading} />
+            <EvoplayGameList games={gamesByProvider['EVOPLAY']} loading={loading} />
+            <DreamtechGameList games={gamesByProvider['DREAMTECH']} loading={loading} />
+            
+            {/* Fallback for any other providers not explicitly defined above */}
+            {providers.slice(6).map(p => (
+              <OtherGamesList 
+                key={p.id}
+                provider={p.id}
+                providerName={p.name}
+                games={gamesByProvider[p.id] || []}
                 loading={loading}
-            />
-            <GameList 
-                provider="PRAGMATIC" 
-                title="Pragmatic Play" 
-                games={pragmaticGames} 
-                maxGames={12}
-                loading={loading}
-            />
+                variant={p.variant}
+              />
+            ))}
           </>
         )}
       </section>

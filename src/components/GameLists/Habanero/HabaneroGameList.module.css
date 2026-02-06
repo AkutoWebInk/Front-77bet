@@ -3,8 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 20px;
-  padding: 0; /* Let Home container handle side padding */
+  margin-bottom: 25px;
   box-sizing: border-box;
 }
 
@@ -13,8 +12,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 8px 6px 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 0 15px 8px 15px;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.2);
 }
 
 .left {
@@ -27,45 +26,43 @@
   height: 24px;
   max-width: 110px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
 
 .title {
-  color: #fff;
-  font-size: 17px;
-  font-weight: 900;
+  color: #ff3333;
+  font-size: 18px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   margin: 0;
 }
 
 .viewAll {
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: #ff4500;
-  font-size: 12px;
-  font-weight: 800;
+  gap: 5px;
+  color: #ff3333;
+  font-size: 11px;
+  font-weight: 900;
   text-decoration: none;
   text-transform: uppercase;
-  background: rgba(255, 69, 0, 0.08);
-  padding: 5px 12px;
+  background: rgba(255, 0, 0, 0.1);
+  padding: 6px 12px;
   border-radius: 8px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
 }
 
 .viewAll:hover {
-  background: rgba(255, 69, 0, 0.15);
-  transform: translateX(5px);
-  box-shadow: 0 4px 12px rgba(255, 69, 0, 0.1);
+  background: #ff3333;
+  color: #fff;
 }
 
 .content {
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  padding: 12px 8px;
+  gap: 15px;
+  padding: 15px;
   overflow-x: auto;
   scrollbar-width: none;
   box-sizing: border-box;
@@ -76,21 +73,13 @@
 }
 
 .cardWrapper {
-  width: 155px;
+  width: 150px;
   flex: 0 0 auto;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.cardWrapper:hover {
-  transform: translateY(-5px);
-  z-index: 2;
+  transition: all 0.3s ease;
 }
 
 @media (min-width: 768px) {
   .cardWrapper {
     width: 200px;
-  }
-  .title {
-    font-size: 22px;
   }
 }

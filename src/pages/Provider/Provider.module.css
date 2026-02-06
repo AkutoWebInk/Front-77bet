@@ -1,0 +1,90 @@
+.container {
+    padding: 15px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 10px 5px;
+    background: linear-gradient(90deg, rgba(255, 69, 0, 0.1) 0%, transparent 100%);
+    border-radius: 15px;
+    border-left: 4px solid #ff4500;
+}
+
+.backButton {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.backButton:hover {
+    background: #ff4500;
+    border-color: #ff4500;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.4);
+}
+
+.titleSection {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.providerIcon {
+    height: 32px;
+    max-width: 120px;
+    object-fit: contain;
+}
+
+.title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .providerIcon {
+        height: 45px;
+        max-width: 180px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+}
+

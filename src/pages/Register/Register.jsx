@@ -12,12 +12,12 @@ import PromoCarousel from '../../components/PromoCarousel/PromoCarousel';
 import { promoList } from '../../api/promoList';
 
 // API calls:
-import { requestRegister, formatCPF, formatBirthDate, formatPhone } from '../../api/services/register';
-import { requestLogin } from "../../api/services/login";
+import { requestRegister, fetchProfile } from '../../api/services/auth';
+import { requestLogin } from "../../api/services/auth";
 import { useAuth } from "../../context/AuthProvider";
 
-// Data chekers for the handlers:
-import { checkBirthDate } from '../../api/services/register';
+// Utilities:
+import { formatCPF, formatBirthDate, formatPhone, checkBirthDate } from '../../api/utils';
 
 // Warnings:
 import {useWarning} from '../../context/WarningProvider';

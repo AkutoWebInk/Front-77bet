@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { fetchProfile } from "../api/services/profile";
+import { fetchProfile, requestLogout } from "../api/services/auth";
 
 const AuthContext = createContext();
 
@@ -23,7 +23,10 @@ export default function AuthProvider({ children }) {
   };
 
 
-  const logout = () => setUser(null);
+  const logout = async () => {
+    await requestLogout();
+    setUser(null);
+  };
 
   return (
     <AuthContext.Provider value={{ user, login, logout, loading }}>

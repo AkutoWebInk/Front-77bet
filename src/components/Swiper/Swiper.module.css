@@ -60,6 +60,22 @@
     filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4));
 }
 
+.textCard {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 0 15px;
+}
+
+.cardText {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .name {
     font-size: 10px;
     font-weight: 900;

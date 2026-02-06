@@ -53,18 +53,24 @@ export default function Play() {
         <div className={styles.container}>
             <div className={styles.header}>
                 <button onClick={() => navigate(-1)} className={styles.backButton}>
-                    <IoIosArrowBack /> Voltar
+                    <IoIosArrowBack />
                 </button>
-                <h1 className={styles.title}>{id.replace(/-/g, " ").replace(/_/g, " ")}</h1>
+                <h1 className={styles.title}>
+                    {id.split('/').pop().replace(/-/g, " ").replace(/_/g, " ")}
+                </h1>
             </div>
             <div className={styles.gameWrapper}>
                 {url ? (
                     <iframe 
+                        key={url}
                         src={url} 
                         title={id}
                         className={styles.iframe}
                         frameBorder="0"
                         allowFullScreen
+                        allow="autoplay; fullscreen; dpr; camera; microphone; clipboard-read; clipboard-write; encrypted-media; gyroscope; accelerometer; midi;"
+                        loading="eager"
+                        referrerPolicy="no-referrer"
                     />
                 ) : (
                     <div className={styles.error}>Erro ao carregar o jogo. Tente novamente mais tarde.</div>

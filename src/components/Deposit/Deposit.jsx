@@ -2,10 +2,10 @@
 import styles from './Deposit.module.css';
 
 // Functions
-import { formatValue, formatCurrency } from '../../api/services/deposit';
+import { formatValue, formatCurrency } from '../../api/utils';
 
 // API calls
-import { requestDeposit } from '../../api/services/deposit';
+import { requestDeposit } from '../../api/services/finance';
 
 // Icons
 import { IoCloseOutline } from "react-icons/io5";
